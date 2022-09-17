@@ -1,0 +1,16 @@
+.text-overlay-container {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .text-overlay-container h2{
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+  
+  .text-overlay-container video{
+    margin-bottom: 30px;
+  }
+  
