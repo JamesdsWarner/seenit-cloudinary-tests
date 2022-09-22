@@ -1,11 +1,10 @@
 import FileUpload from "../file-upload/file-upload.component";
 import { useState, useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
-import axios from "axios";
-import { Cloudinary } from "@cloudinary/url-gen";
 import "./ken-burns.styles.css";
 import { upload, genDeliveryURL } from "../../helpers";
 import SlideShowPreviewer from "../SlideShowPreviewer";
+import ImagePreview from "../slideshow-image-preview/slideshow-image-preview.component";
 
 const KenBurns = () => {
   const { setKenBurnsFiles, kenBurnsFiles } = useContext(GlobalContext);
@@ -47,10 +46,6 @@ const KenBurns = () => {
     }
   };
 
-  const handleClick = () => {
-    setFileUploads(fileUploads + 1);
-  };
-
   const handleStartOver = () => {
     setKenBurnsFiles([]);
     setFileUploads(1);
@@ -64,19 +59,27 @@ const KenBurns = () => {
     <div className="ken-burns-container">
       <h2 className="ken-title">Ken Burns</h2>
       {deliveryURL && <SlideShowPreviewer url={deliveryURL} />}
+      {kenBurnsFiles.map((file, i) => {
+        console.log("file", file);
+        return (
+          <ImagePreview
+            resetFileInput={resetFileInput}
+            file={file}
+            resetClear={resetClear}
+            key={i}
+            fileNo={i + 1}
+          />
+        );
+      })}
 
-      <FileUpload resetClear={resetClear} inputKey={inputKey} first clear={clear} />
-      {fileUploads > 1 &&
-        [...Array(fileUploads - 1)].map((e, i) => (
-          <FileUpload resetClear={resetClear} fileNo={i + 1} key={i} />
-        ))}
-      <div
-        className="add-another-file"
-        style={{ display: kenBurnsFiles.length === fileUploads - 1 ? "none" : "" }}
-        onClick={handleClick}
-      >
-        Click here to add another file
-      </div>
+      <FileUpload
+        resetFileInput={resetFileInput}
+        fileNo={kenBurnsFiles.length}
+        inputKey={inputKey}
+        first
+        clear={clear}
+      />
+
       {kenBurnsFiles.length > 0 && (
         <div>
           <button onClick={buildSlideShow} className="create_slide_btn">
