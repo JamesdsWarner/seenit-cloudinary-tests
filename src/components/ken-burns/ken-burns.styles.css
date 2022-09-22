@@ -32,3 +32,11 @@
   .create_slide_btn:hover {
     background-color: #457409;
   }
+
+  .start-over{
+    cursor: pointer;
+  }
+
+  .start-over:hover{
+    background-color: #457409;
+  }

@@ -5,7 +5,7 @@ import { Cloudinary } from "@cloudinary/url-gen";
 
 import "./file-upload.styles.css";
 
-const FileUpload = ({ fileNo, first, clear, inputKey, resetFileInput }) => {
+const FileUpload = ({ fileNo, first, clear, inputKey, resetFileInput, addToArray }) => {
   const [file, setFile] = useState();
   const { setKenBurnsFiles, kenBurnsFiles } = useContext(GlobalContext);
 
@@ -18,6 +18,7 @@ const FileUpload = ({ fileNo, first, clear, inputKey, resetFileInput }) => {
   const handleChange = (event) => {
     setKenBurnsFiles([...kenBurnsFiles, URL.createObjectURL(event.target.files[0])]);
     setFile(URL.createObjectURL(event.target.files[0]));
+    addToArray(event);
     resetFileInput();
   };
 

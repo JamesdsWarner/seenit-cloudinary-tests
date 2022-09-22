@@ -15,10 +15,11 @@ const upload = async (imgFileB64) => {
   return imageDetails.public_id;
 };
 
-const genDeliveryURL = (arrOfAsetIds) => {
+const genDeliveryURL = (arrOfAsetIds, duration) => {
+  const slideDuration = Math.floor(duration / arrOfAsetIds.length) * 1000;
   const templateID = "slideshow_i2o0w9_mhxhzv";
-  const globalSettings = `w_960;h_540;du_10`;
-  const slideSettings = `tdur_1500;transition_s:fade`;
+  const globalSettings = `w_960;h_540;du_${duration}`;
+  const slideSettings = `sdur_${slideDuration};tdur_2500;transition_s:fade`;
 
   const individualSlides = arrOfAsetIds.map((id) => "(media_i:" + id + ")").join(";");
 
