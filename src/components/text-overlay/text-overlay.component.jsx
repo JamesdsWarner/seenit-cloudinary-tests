@@ -83,7 +83,8 @@ const TextOverlay = () => {
           {isCleared ? "Add text" : "Submit"}
         </Button>
         <Button
-          onClick={() => window.location.reload(false)}
+          //   onClick={() => window.location.reload(false)}
+          onClick={handleClearSubmit}
           variant="contained"
           style={{ display: isCleared ? "none" : "" }}
         >

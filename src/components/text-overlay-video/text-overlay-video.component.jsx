@@ -5,6 +5,7 @@ import { TextStyle } from "@cloudinary/url-gen/qualifiers/textStyle";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import { useEffect, memo } from "react";
 import { Position } from "@cloudinary/url-gen/qualifiers";
+import setVersion from "@cloudinary/react";
 import "./text-overlay-video.styles.css";
 
 import { source } from "@cloudinary/url-gen/actions/overlay";
@@ -18,12 +19,13 @@ const TextOverlayVideo = ({ cldVid, clear, textPosition }) => {
     url: {
       analytics: false,
     },
-    version: "v1312461204",
   });
 
   const myVideo = cld.video("samples/sea-turtle");
 
-  myVideo.resize(fill().width(960).height(540));
+  myVideo
+    .resize(fill().width(960).height(540))
+    .setVersion(Math.floor(Math.random() * 10000));
 
   useEffect(() => {
     myVideo
@@ -34,12 +36,16 @@ const TextOverlayVideo = ({ cldVid, clear, textPosition }) => {
             .offsetY(`${parseInt(textPosition.y) + 247}`)
         )
       )
-      .resize(fill().width(960).height(540));
+      .resize(fill().width(960).height(540))
+      .setVersion(Math.floor(Math.random() * 10000));
   }, [cldVid]);
 
   useEffect(() => {
     myVideo.resize(fill().width(960).height(540));
   }, [clear]);
+
+  console.log(cldVid);
+  console.log(myVideo);
 
   return (
     <div className="text-overlay-video-container">
