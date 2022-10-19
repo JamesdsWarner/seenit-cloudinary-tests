@@ -1,0 +1,37 @@
+.slideshow-image-preview {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.slideshow-image-preview-container {
+    height: 108px;
+    display: flex;
+    margin: 0;
+    position: relative;
+    /* width: 180px;  */
+    margin: 0 auto;
+    /* padding: 10px; */
+    display: flex;
+    gap: 30px;
+
+}
+
+.cancel-ken-burns-image{
+    color: red;
+    text-align: center;
+    line-height: 108px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.slideshow-image-preview-container h4{
+    margin: 0;
+    line-height: 108px;
+}

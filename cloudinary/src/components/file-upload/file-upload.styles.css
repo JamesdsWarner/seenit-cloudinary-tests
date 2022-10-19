@@ -1,0 +1,16 @@
+.file-upload-container{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.file-upload-container h4{
+    margin: 0;
+    line-height: 108px;
+}
+
+.file-upload-container input{
+    margin: auto;
+}

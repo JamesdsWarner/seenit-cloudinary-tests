@@ -1,0 +1,9 @@
+.text-overlay-video-container{
+    display: relative;
+    justify-content: left;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+

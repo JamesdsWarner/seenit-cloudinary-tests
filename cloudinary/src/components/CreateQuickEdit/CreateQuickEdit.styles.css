@@ -1,0 +1,28 @@
+.radio-container{
+    margin-top: 30px;
+    flex: 1 1 0%;
+  
+  }
+  
+.quick-edit-header{
+  height: 80px;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+}
+
+  .quick-edit-header h1{
+    margin: 0;
+  }
+
+  .quick-edit-second-header{
+    font-size: 28px;
+    margin: 0;
+  }
+
+.create-quick-edit-inner{
+  padding: 32px;
+}
